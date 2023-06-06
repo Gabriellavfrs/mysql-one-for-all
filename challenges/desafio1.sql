@@ -36,11 +36,13 @@ CREATE TABLE SpotifyClone.Songs(
     song_title VARCHAR(100) NOT NULL,
     song_duration_sec INT NOT NULL,
     album_id INT NOT NULL,
-    FOREIGN KEY (album_id) REFERENCES SpotifyClone.Albums (album_id)
+	artist_id INT NOT NULL,
+    FOREIGN KEY (album_id) REFERENCES SpotifyClone.Albums (album_id),
+    FOREIGN KEY (artist_id) REFERENCES SpotifyClone.Artists (artist_id)
 ) engine = InnoDB;
 
 CREATE TABLE SpotifyClone.History(
-	  user_id INT NOT NULL,
+	user_id INT NOT NULL,
     song_id INT NOT NULL,
     history_date DATETIME NOT NULL,
 	CONSTRAINT PRIMARY KEY (user_id, song_id),
@@ -49,7 +51,7 @@ CREATE TABLE SpotifyClone.History(
 ) engine = InnoDB;
 
 CREATE TABLE SpotifyClone.Following(
-	  user_id INT NOT NULL,
+	user_id INT NOT NULL,
     artist_id INT,
     CONSTRAINT PRIMARY KEY (user_id, artist_id),
     FOREIGN KEY (user_id) REFERENCES SpotifyClone.Users (user_id),
@@ -96,18 +98,18 @@ VALUES
 	('Somewhere Far Beyond', '2007', '5'),
 	('I Put A Spell On You', '2012', '6');
     
-INSERT INTO SpotifyClone.Songs (song_title, song_duration_sec, album_id)
+INSERT INTO SpotifyClone.Songs (song_title, song_duration_sec, album_id, artist_id)
 VALUES
-	('Break My Soul', '279', '1'),
-	('Virgo\'s Groove', '369', '1'),
-	(' "Alien Superstar"', '116', '1'),
-	('"Don\'t Stop Me Now"', '203', '2'),
-	('"Under Pressure"', '152', '3'),
-	('"Como Nossos Pais"', '105', '4'),
-	('"O Medo de Amar é o Medo de Ser Livre"', '207', '5'),
-	('"Samba em Paris"', '267', '6'),
-	('"The Bard\'s Song"', '244', '7'),
-	('"Feeling Good"', '100', '8');
+	('Break My Soul', '279', '1', '1'),
+	('Virgo\'s Groove', '369', '1', '1'),
+	(' "Alien Superstar"', '116', '1', '1'),
+	('"Don\'t Stop Me Now"', '203', '2', '2'),
+	('"Under Pressure"', '152', '3', '2'),
+	('"Como Nossos Pais"', '105', '4', '3'),
+	('"O Medo de Amar é o Medo de Ser Livre"', '207', '5', '3'),
+	('"Samba em Paris"', '267', '6', '4'),
+	('"The Bard\'s Song"', '244', '7', '5'),
+	('"Feeling Good"', '100', '8', '6');
     
 INSERT INTO SpotifyClone.History (user_id, song_id, history_date)
 VALUES
@@ -130,7 +132,7 @@ VALUES
     
 INSERT INTO SpotifyClone.Following (user_id, artist_id)
 VALUES
-  ('1', '1'),
+    ('1', '1'),
 	('1', '2'),
 	('1', '3'),
 	('2', '1'),
