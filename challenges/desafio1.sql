@@ -102,14 +102,14 @@ INSERT INTO SpotifyClone.Songs (song_title, song_duration_sec, album_id, artist_
 VALUES
 	('Break My Soul', '279', '1', '1'),
 	('Virgo\'s Groove', '369', '1', '1'),
-	(' "Alien Superstar"', '116', '1', '1'),
-	('"Don\'t Stop Me Now"', '203', '2', '2'),
-	('"Under Pressure"', '152', '3', '2'),
-	('"Como Nossos Pais"', '105', '4', '3'),
-	('"O Medo de Amar é o Medo de Ser Livre"', '207', '5', '3'),
-	('"Samba em Paris"', '267', '6', '4'),
-	('"The Bard\'s Song"', '244', '7', '5'),
-	('"Feeling Good"', '100', '8', '6');
+	('Alien Superstar', '116', '1', '1'),
+	('Don\'t Stop Me Now', '203', '2', '2'),
+	('Under Pressure', '152', '3', '2'),
+	('Como Nossos Pais', '105', '4', '3'),
+	('O Medo de Amar é o Medo de Ser Livre', '207', '5', '3'),
+	('Samba em Paris', '267', '6', '4'),
+	('The Bard\'s Song', '244', '7', '5'),
+	('Feeling Good', '100', '8', '6');
     
 INSERT INTO SpotifyClone.History (user_id, song_id, history_date)
 VALUES
